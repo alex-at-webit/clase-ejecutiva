@@ -13,9 +13,7 @@ export default class Item extends React.Component {
   render() {
 
     var Actividad = this.props.actividad;
-
-    console.log(Actividad.fecha);
-
+    
     return (
     	<li>
     	<div className="contenedor_seminario">

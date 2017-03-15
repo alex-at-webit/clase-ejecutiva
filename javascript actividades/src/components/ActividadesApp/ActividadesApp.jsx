@@ -26,9 +26,9 @@ export default class ActividadesApp extends React.Component {
     }
     else{
 
-      var actividadDestacada= this.props.actividades.seminarios[0];
+      var actividadDestacada= this.props.actividades.seminarios && this.props.actividades.seminarios[0];
       var listaActividades= this.props.actividades.charlas;
-
+      
     }
 
 
@@ -36,7 +36,7 @@ export default class ActividadesApp extends React.Component {
       <div>
       <SelectorModo changeHandler={this.cambioDeModo}/>
       {actividadDestacada? <ActividadDestacada actividad={actividadDestacada}/> : null} 
-      <ListaItems actividades={listaActividades} />
+       <ListaItems actividades={listaActividades} modoLista={this.state.modo}/>
       </div>
     );
   }

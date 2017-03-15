@@ -22,7 +22,8 @@ componentDidMount(){
 	   fetch('http://webit.diplomadosuc.cl/resultados-actividades/').then(response =>{
 	 		
 	 		response.json().then(valor=>{
-if(valor.seminarios){
+
+          if(valor.seminarios){
           var seminarios = valor.seminarios.map((value, index)=>{
 
             value.fecha = this.spanishDate(new Date(""+value.fecha));
