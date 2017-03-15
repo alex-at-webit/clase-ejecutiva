@@ -1,0 +1,232 @@
+/*CSS para actividades*/
+/* = = = = = = = = = = */
+body{
+	width:960px;
+	font-family: 'Open sans', sans-serif;
+	margin:30px auto;
+}
+
+/* = = = = = = = = = = */
+
+/* charla destacada */
+
+#charla_destacada{
+	width:100%;
+}
+	.charla{
+		background-color:#FFFFFF;
+		border-radius: 5px;
+		overflow: hidden;
+		padding:10px;
+		border:1px solid #eee;
+	}
+		.charla .imagen{
+			float:left;
+		}
+		.charla .texto{
+			margin-left:280px;
+		}
+			.charla .texto h3{
+				/*color:#098765;*/
+				color:#333333;
+				font-size: 26px;
+				text-transform: uppercase;
+				font-weight: 300;
+				margin: 10px 0px;
+			}
+			.charla .texto p{
+				font-size: 14px;
+				margin-bottom: 10px;
+				color:#666666;
+			}
+			.charla .texto h5{
+				
+			}
+			.charla .texto a{
+				/*background-color:#098765;*/
+				color:#333;
+				padding:10px 20px;
+				border-radius: 5px;
+				letter-spacing: 3px;
+				font-size: 11px;
+				text-transform: uppercase;
+				text-decoration: none;
+				border:1px solid #333;
+				transition:all .2s ease-in;
+			}
+			.charla .texto a:hover{
+				background: #333;
+				color:#FFFFFF;
+			}
+
+/* /_.charla destacada */
+
+/* seminario destacada */
+#seminarios{
+	width:100%;
+}
+	#seminarios h2{
+		font-size:40px;
+		text-transform: uppercase;
+		letter-spacing: 10px;
+		text-align: center;
+		font-weight: 300;
+		border-bottom:1px solid #eee;
+		padding-bottom:30px;
+	}
+	#seminario_destacado{
+		background-color:#FFFFFF;
+		margin-bottom: 50px;
+		padding-bottom: 50px;
+		border-bottom: 1px solid #ccc;
+	}
+
+	#seminarios ul{
+		padding: 0px;
+	    display: flex;
+	    flex-direction: row;
+	    flex-wrap: wrap;
+	}
+		#seminarios ul li{
+			list-style: none;
+			width:48%;
+			margin: 1%;
+		}
+/*Seminario destacado*/
+	#seminario_destacado .contenedor_seminario{
+		height:350px;
+		overflow: hidden;
+		/*cursor: pointer;*/
+		transition: all .2s ease-in;
+		position: relative;
+	}
+
+		#seminario_destacado .info_seminario{
+			background-color: rgba(0,0,0,.5);
+			position: absolute;
+			top:0px;
+			height: 350px;
+			padding: 30px;
+		}
+			#seminario_destacado .info_seminario .detalle_seminario{
+				color:#FFFFFF;
+			}
+			#seminario_destacado .info_seminario .detalle_seminario h3{
+				font-size: 34px;
+				font-weight: 300;
+				margin: 0;
+				line-height: 34px;
+				color: #FFCC30;
+			}
+			#seminario_destacado .info_seminario .detalle_seminario h5{
+				font-size: 110%;
+				font-weight: 400;
+			}
+			#seminario_destacado .info_seminario .detalle_seminario p{
+				line-height: 21px;
+				font-size: 14px;
+				color:#FFFFFF;
+				font-weight: 300;
+			}
+			#seminario_destacado .info_seminario .detalle_seminario p a{
+				color:#FFCC30;
+				text-decoration: none;
+			}
+			#seminario_destacado .info_seminario .detalle_seminario p a:hover{
+				text-decoration: underline;
+			}
+			#seminario_destacado .info_seminario .detalle_seminario .cta_seminario{
+				background-color:#FFCC30;
+				color:#003366;
+				padding:15px 30px;
+				text-decoration: none;
+				text-transform: uppercase;
+				letter-spacing: 5px;
+				font-size: 12px;
+				margin-top:20px;
+				border-radius: 5px;
+				display: inline-block;
+				font-weight: 400;
+				transition: all .2s ease-in;
+			}
+			#seminario_destacado .info_seminario .detalle_seminario .cta_seminario:hover{
+				background-color:#003366;
+				color:#ffcc30;
+			}
+		/* /_.Seminario destacado */
+
+	#seminario .contenedor_seminario{
+		overflow: hidden;
+	}
+/* /_. seminario destacada */
+
+/*Seminarios*/
+	#seminarios ul li .contenedor_seminario{
+		height:170px;
+		overflow: hidden;
+		/*cursor: pointer;*/
+		transition: all .1s ease-in;
+		position: relative;
+	}
+		#seminarios ul li .contenedor_seminario .info_seminario{
+			background-color: rgba(0,0,0,.6);
+			position: absolute;
+			top:170px;
+			height: 180px;
+			padding:15px;
+			transition: all .1s ease-in;
+		}
+		#seminarios ul li .contenedor_seminario:hover .info_seminario{
+			position: absolute;
+			top:0px;
+			height: 180px;
+			padding:15px;
+			transition: all .2s ease-in;
+		}
+			#seminarios ul li .contenedor_seminario .info_seminario .detalle_seminario{
+				color:#FFFFFF;
+			}
+			#seminarios ul li .contenedor_seminario .info_seminario .detalle_seminario h3{
+				font-size: 26px;
+				font-weight: 300;
+				margin: 0;
+				color: #FFF;
+				position: absolute;
+				top: -150px;
+				left: 0px;
+				background-color: rgba(0,0,0,.5);
+				padding: 10px 5%;
+				width: 90%;
+			}
+			#seminarios ul li .contenedor_seminario .info_seminario .detalle_seminario span{
+				font-size: 18px;
+			    font-weight: 300;
+			    margin: 0;
+			    color: #FFCC30;
+			}
+			#seminarios ul li .contenedor_seminario .info_seminario .detalle_seminario h5{
+				font-size: 110%;
+				font-weight: 400;
+				margin:15px 0px 0px;
+			}
+			#seminarios ul li .contenedor_seminario .info_seminario .detalle_seminario p{
+				line-height: 20px;
+				font-size: 14px;
+				color:#FFFFFF;
+				font-weight: 400;
+				margin: 0;
+			}
+			#seminarios ul li .contenedor_seminario .info_seminario .detalle_seminario p a{
+				color:#FFCC30;
+				text-decoration: none;
+			}
+			#seminarios ul li .contenedor_seminario .info_seminario .detalle_seminario p a:hover{
+				text-decoration: underline;
+			}
+		/* /_.Seminario destacado */
+
+
+
+
+
+
