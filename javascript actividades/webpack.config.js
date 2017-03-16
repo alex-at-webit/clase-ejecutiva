@@ -2,9 +2,8 @@ var path = require('path');
 var webpack = require('webpack');
  
 module.exports = {
-  entry: './src/components/main.jsx'
-
-/* {
+  entry:'./src/components/main.jsx'
+/*{
     bundle:'./src/components/main.jsx',
     vendor:'react'
   }*/,
@@ -27,22 +26,19 @@ module.exports = {
   },
 
   watch:true,
-  devtool:'eval',
-
-  /*
-  devtool:'cheap-module-source-map',
-  watch:true,
+ // devtool:'eval',
+  //devtool:'cheap-module-source-map',
   plugins: [
   new webpack.DefinePlugin({
-    'process.env': {
-      'NODE_ENV': JSON.stringify('production')
-    }
-  }),
+    'process.env.NODE_ENV': JSON.stringify('production')
+    }),
 
+  new webpack.optimize.UglifyJsPlugin() 
+
+/*
    new webpack.optimize.CommonsChunkPlugin({
                 names: ['vendor'] // Specify the common bundle's name.
-            })
+            }) */
 ],
 
-*/
 };

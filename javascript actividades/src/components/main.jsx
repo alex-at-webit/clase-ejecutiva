@@ -39,6 +39,8 @@ componentDidMount(){
                     });
           }
 
+          console.log(seminarios);
+
 					this.setState({data:{seminarios,charlas}});
 	 		});
 		});
@@ -48,8 +50,11 @@ componentDidMount(){
 
   render() {
 
+    var modo = window.location.hash.substr(1);
+    modo = modo===""? "seminarios":modo;
+
     return (<div>
-      {this.state && this.state.data? <ActividadesApp actividades={this.state.data}/> :null}
+      {this.state && this.state.data? <ActividadesApp actividades={this.state.data} modo={modo}/> :null}
       </div>
     );
   }

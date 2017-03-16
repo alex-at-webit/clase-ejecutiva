@@ -21,8 +21,8 @@ export default class Item extends React.Component {
 					<div className="info_seminario">
 						<div className="detalle_seminario">
 							<h3>{Actividad.titulo}</h3>
-							<span>{Actividad.titulo}</span>
-							<p>Lorem ipsum dolor sit amet, <a href={""+Actividad.URL}> consectetur adipisicing</a> elit. Aperiam nihil laboriosam vel sit, corporis voluptatem tempora aliquid, laudantium facilis excepturi.</p>
+							<span><a href={""+Actividad.URL}>{Actividad.titulo}</a></span>
+							<p>{Actividad.contenido}</p>
 							<h5>{Actividad.fecha}</h5>
 						</div>
 					</div>

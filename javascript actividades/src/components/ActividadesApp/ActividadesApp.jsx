@@ -7,7 +7,14 @@ export default class ActividadesApp extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state={modo:"seminarios"};
+    if(this.props.modo==="seleccion"){
+    this.state={modo:"seminarios", selection:true};
+    }
+    else{
+    this.state={modo:this.props.modo, selection:false};
+    }
+
+   
     this.cambioDeModo = this.cambioDeModo.bind(this);
   }
 
@@ -34,7 +41,7 @@ export default class ActividadesApp extends React.Component {
 
     return (
       <div>
-      <SelectorModo changeHandler={this.cambioDeModo}/>
+      {this.state.selection? <SelectorModo changeHandler={this.cambioDeModo}/>:null}
       {actividadDestacada? <ActividadDestacada actividad={actividadDestacada}/> : null} 
        <ListaItems actividades={listaActividades} modoLista={this.state.modo}/>
       </div>

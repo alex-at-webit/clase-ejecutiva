@@ -28,9 +28,9 @@ export default class ActividadDestacada extends React.Component {
 			</div>
 			<div className="texto">
 				<h3>{Actividad.titulo}</h3>
-				<p>Cum eveniet, nobis modi debitis soluta doloremque doloribus reprehenderit delectus aliquam enim?.Lorem ipsum dolor sit amet.</p>
+				<p>{Actividad.contenido}</p>
 				<h5><small>Fecha: </small>{Actividad.fecha}</h5>
-				<a href={""+Actividad.URL}>Link a Charla</a>
+				<a href={""+Actividad.URL}>Ver mas</a>
 			</div>
 		</div>
 	</section>
