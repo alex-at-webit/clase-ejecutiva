@@ -23,7 +23,21 @@ componentDidMount(){
 	 		
 	 		response.json().then(valor=>{
 
+           console.log(valor.seminarios);
+
+
+
           if(valor.seminarios){
+            
+            var seminarios = valor.seminarios.sort((a, b)=>{
+
+             var fechaA= new Date(""+a.fecha);
+             var fechaB= new Date(""+b.fecha);
+
+
+              return fechaA - fechaB;
+            });
+
           var seminarios = valor.seminarios.map((value, index)=>{
 
             value.fecha = this.spanishDate(new Date(""+value.fecha));
@@ -31,16 +45,24 @@ componentDidMount(){
           });}
 
           if(valor.charlas){
+
+            var charlas = valor.seminarios.sort((a, b)=>{
+
+             var fechaA= new Date(""+a.fecha);
+             var fechaB= new Date(""+b.fecha);
+
+
+              return fechaA - fechaB;
+            });
           
-                    var charlas = valor.charlas.map((value, index)=>{
+             charlas = valor.charlas.map((value, index)=>{
           
-                      value.fecha = this.spanishDate(new Date(""+value.fecha));
+                     value.fecha = this.spanishDate(new Date(""+value.fecha));
                        return value;
                     });
           }
 
-          console.log(seminarios);
-
+ 
 					this.setState({data:{seminarios,charlas}});
 	 		});
 		});
