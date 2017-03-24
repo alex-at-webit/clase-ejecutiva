@@ -1,0 +1,121 @@
+/*- buscador -*/
+.wraper{
+	background: #2e7de1;
+	margin:0px;
+	padding:20px;
+}
+/*-- titulo --*/
+.titulobuscador{
+	text-align: center;
+}
+.titulobuscador h1{
+	color:#FFCB29;
+	font-family: 'montserrat', 'open sans', 'helvetica neue', sans-serif;
+	font-weight: 300;
+	margin: 0;
+}
+.titulobuscador p{
+	color:#FFFFFF;
+	font-family: 'open sans', 'helvetica neue', sans-serif;
+	font-size: 14px;
+	margin: 0px;
+}
+
+/*-- resultados --*/
+.resultados{
+	
+}
+.listaresultados{
+	padding: 0px;
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+}
+.itemresultado{
+	margin:1%;
+	background: rgba(0,0,0,.1);
+	padding:20px;
+	width:31%;
+	border-radius: 5px;
+	text-align: center;
+	font-family: 'open sans', 'helvetica neue', sans-serif;
+}
+	.tituloresultado{
+		color:#FFCB29;
+		font-weight: 400;
+		margin: 0px;
+	}
+	.descripcionresultado{
+		color:#FFFFFF;
+		font-size:13px;
+	}
+	.profesorresultado{
+		color:rgba(0,0,0,.7);
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	.masinforesultado{
+		background: #FFCB29;
+		display: inline-block;
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		padding:10px 20px;
+		margin:20px 20px 0px;
+		border-radius: 5px;
+		color:#1F3E76;
+		text-decoration: none;
+	}
+		.masinforesultado:hover{
+			background:#FFDB00;
+		}
+
+.buscador{
+	padding:20px;
+}
+	.buscador form div{
+		display: inline-block;
+		width:40%;
+		margin:1%;
+	}
+	.buscador label{
+		font-size:14px;
+		font-family: 'open sans', 'helvetica neue', sans-serif;
+		color:#FFFFFF;
+		display: block;
+
+	}
+		.buscador form .seleccionarea select,
+		.buscador form .seleccionbimestre select{
+			width:100%;
+			height: 40px;
+		}
+	.btnfiltrar{
+		background: #FFCB29;
+		display: inline-block;
+		font-size: 12px;
+		border:0px;
+		text-transform: uppercase;
+		padding:13px 20px;
+		border-radius: 5px;
+		color:#1F3E76;
+		font-weight:700;
+		text-decoration: none;
+	}
+
+@media screen and (max-width: 768px){
+	.listaresultados{
+		flex-direction: column;
+	}
+	.itemresultado{
+		width:90%;
+	}
+	.buscador form div,
+	.buscador form button{
+		display: block;
+		margin:5%;
+		width:90%;
+	}
+
+}

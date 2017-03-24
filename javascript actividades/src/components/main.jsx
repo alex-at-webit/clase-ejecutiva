@@ -72,8 +72,8 @@ componentDidMount(){
 
   render() {
 
-    var modo = window.location.hash.substr(1);
-    modo = modo===""? "seminarios":modo;
+    var modo = location.search.split('?')[1];
+    modo = !modo? "seminarios":modo;
 
     return (<div>
       {this.state && this.state.data? <ActividadesApp actividades={this.state.data} modo={modo}/> :null}
