@@ -16,10 +16,10 @@ export default class Item extends React.Component {
     
     return (
     	<li>
-    	<div className="contenedor_seminario">
-					<img className="img_seminario" width="100%" src={Actividad.fotoURL}/>
-					<div className="info_seminario">
-						<div className="detalle_seminario">
+    	<div className="contenedor_evento">
+					<img className="img_evento" width="100%" src={Actividad.fotoURL}/>
+					<div className="info_evento">
+						<div className="detalle_evento">
 							<h3>{Actividad.titulo}</h3>
 							<span><a href={""+Actividad.URL}>{Actividad.titulo}</a></span>
 							<p>{Actividad.contenido}</p>

@@ -37,7 +37,7 @@ export default class ListaItems extends React.Component {
 
 
     return (
-      <section id="seminarios">
+      <section id="eventos">
         <h2>{Modo}</h2>
         {actividadDestacada?<PrimerItem actividadDestacada={actividadDestacada}/>:null}
         <ul>

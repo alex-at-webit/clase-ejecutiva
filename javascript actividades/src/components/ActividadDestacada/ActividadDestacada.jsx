@@ -21,10 +21,10 @@ export default class ActividadDestacada extends React.Component {
 
     return (
 
-    	<section id="charla_destacada">
-		<div className="charla">
+    	<section id="actividad_destacada">
+		<div className="actividad">
 			<div className="imagen">
-				<img src={Actividad.fotoURL} alt="Charla Destacada"/>
+				<img src={Actividad.fotoURL} alt="Actividad Destacada"/>
 			</div>
 			<div className="texto">
 				<h3>{Actividad.titulo}</h3>
