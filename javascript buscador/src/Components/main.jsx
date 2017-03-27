@@ -18,7 +18,7 @@ export default class Main extends React.Component {
 
   render() {
     return (
-      <div className="wrapper">
+      <div>
       	{(this.state.modo=="selector")?<Selector changeHandler={this.manejadorSeleccion}/>:<AppBuscador modo={this.state.modo}/>}
       </div>
     );

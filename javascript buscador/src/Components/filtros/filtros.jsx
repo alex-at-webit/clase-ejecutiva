@@ -1,4 +1,5 @@
 import React from 'react';
+import BotonBusqueda from '../botonBusqueda/botonBusqueda.jsx';
 
 export default class Filtros extends React.Component {
 
@@ -21,14 +22,17 @@ export default class Filtros extends React.Component {
   }
   
   render() {
+    var boton= this.props.boton;
+
     return (
+      <div className="buscador">
     	<form>
       <div className="seleccionarea">
-      <label for="selectarea">Seleccione el área</label>
+      <label htmlFor="selectarea">Seleccione el área</label>
       <select onChange={this.manejadorCambioArea} name="selectarea" id="selectarea">
       <option value={'all'}>7 Areas</option>
       {this.props.areas.map((area)=>{
-      	return <option value={area.ID}>{area.titulo}</option>;
+      	return <option value={area.ID} key={area.ID}>{area.titulo}</option>;
       })}
       <option value={'NA'}>Sin Area</option>
       </select>
@@ -36,7 +40,7 @@ export default class Filtros extends React.Component {
       </div>
       {(this.props.modo=='cursos')?(
         <div className="seleccionbimestre">
-           <label for="selectbimestre">Seleccione el bimestre</label>
+           <label htmlFor="selectbimestre">Seleccione el bimestre</label>
           <select onChange={this.manejadorCambioBimestre} name="selectbimestre" id="selectbimestre">
             <option value={'all'}>5 Bimestres</option>
             <option value={1}>Primero</option>
@@ -46,7 +50,10 @@ export default class Filtros extends React.Component {
             <option value={5}>Quinto</option>
             </select>
             </div>):''}
+
+      {boton.mostrarBoton?<BotonBusqueda isDisabled={boton.isDisabled} clickHandler={boton.clickHandler} /> :''}
       </form>
+      </div>
     );
   }
 }

@@ -1,8 +1,7 @@
 import React from 'react';
-import BotonBusqueda from '../botonBusqueda/botonBusqueda.jsx';
 import Filtros from '../filtros/filtros.jsx';
 import ListaResultados from '../listaResultados/listaResultados.jsx';
-
+import TituloBuscador from '../tituloBuscador/titulobuscador.jsx';
 
 class AppBuscador extends React.Component{
 
@@ -81,33 +80,35 @@ class AppBuscador extends React.Component{
 
 	 		});
 					});
-
-		console.log("appBuscador will mount");
 	}
 
 	render(){
 
-					if(this.state && (this.state.filtros && this.state[this.props.modo])){
-					var listaFiltrada=this.obtenerListaFiltrada();
+		if(this.state && (this.state.filtros && this.state[this.props.modo])){
+					
+					var listaFiltrada=this.obtenerListaFiltrada();			
 					
 					}
-				
-				var 
+
+					if(this.state){
+								var boton={
+											mostrarBoton:((this.state && this.state.areas)&&(!this.state[this.props.modo])),
+											isDisabled: !this.state.filtros,
+											clickHandler:this.makeCall
+
+										};}
+		return (
+			<div className="wraper">
 
 
-		return <div className="wrapper">
-
-		
-
-				{(this.state && this.state[this.props.modo])?<ListaResultados arrayResultados={listaFiltrada} parametros={this.state.filtros} areas={this.state.areas} modo={this.props.modo}/>:<div id="llamado-search">Busca {this.props.modo} en Clase Ejecutiva</div>}
-				{(this.state && this.state.areas)?<Filtros areas={this.state.areas} changeHandler={this.setFilters} modo={this.props.modo} />:''}
-				{((this.state && this.state.areas)&&(!this.state[this.props.modo]))?<BotonBusqueda isDisabled={!this.state.filtros} clickHandler={this.makeCall} />:''}
-				
-
-			
-				
-				</div>
+				{(this.state && this.state[this.props.modo])?<TituloBuscador areas={this.state.areas} parametros={this.state.filtros} modo={this.props.modo}/>:''}
+				{(this.state && this.state[this.props.modo])?<ListaResultados arrayResultados={listaFiltrada} />:<div className="titulobuscador"><h1>Busca {this.props.modo} en Clase Ejecutiva</h1></div>}
+				{(this.state && this.state.areas)?<Filtros areas={this.state.areas} changeHandler={this.setFilters} modo={this.props.modo} boton={boton}/>:''}
+							
+				</div>)
 	}
+	
+
 }
 
 export default AppBuscador;
