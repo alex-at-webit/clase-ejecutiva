@@ -9503,6 +9503,7 @@ var AppBuscador = function (_React$Component) {
 			fetch('http://webit.diplomadosuc.cl/resultados-filtro/?q=' + elemento).then(function (response) {
 
 				response.json().then(function (valor) {
+
 					_this2.setState(_defineProperty({}, elemento, valor[elemento]));
 				});
 			});
@@ -9511,12 +9512,9 @@ var AppBuscador = function (_React$Component) {
 		key: 'setFilters',
 		value: function setFilters(filter) {
 
-			//filters es un objeto de dos propiedades: bimestre, area
-
-
 			var filters = this.state.filtros ? Object.assign({}, this.state.filtros, filter) : filter;
 
-			this.setState({ filtros: filters }, function () {});
+			this.setState({ filtros: filters });
 		}
 	}, {
 		key: 'obtenerListaFiltrada',
@@ -9562,25 +9560,21 @@ var AppBuscador = function (_React$Component) {
 		key: 'render',
 		value: function render() {
 
-			if (this.state && this.state.filtros && this.state[this.props.modo]) {
-
+			if (this.state && this.state[this.props.modo]) {
 				var listaFiltrada = this.obtenerListaFiltrada();
 				var hayResultados = listaFiltrada.length;
 			}
 
 			if (this.state) {
-				var boton = {
-					mostrarBoton: this.state && this.state.areas && !this.state[this.props.modo],
-					isDisabled: !this.state.filtros,
-					clickHandler: this.makeCall
-
-				};
+				var clientSideCall = this.state && this.state[this.props.modo] != undefined;
 			}
+
+			console.log("(this.state && (this.state[this.props.modo] != undefined)", this.state && this.state[this.props.modo] != undefined);
+
 			return _react2.default.createElement(
 				'div',
 				{ className: 'wraper' },
-				this.state && this.state[this.props.modo] ? _react2.default.createElement(_titulobuscador2.default, { areas: this.state.areas, parametros: this.state.filtros, modo: this.props.modo, hayResultados: hayResultados }) : '',
-				this.state && this.state[this.props.modo] ? _react2.default.createElement(_listaResultados2.default, { arrayResultados: listaFiltrada }) : _react2.default.createElement(
+				listaFiltrada ? _react2.default.createElement(_titulobuscador2.default, { areas: this.state.areas, parametros: this.state.filtros, modo: this.props.modo, hayResultados: hayResultados }) : _react2.default.createElement(
 					'div',
 					{ className: 'titulobuscador' },
 					_react2.default.createElement(
@@ -9591,7 +9585,8 @@ var AppBuscador = function (_React$Component) {
 						' en Clase Ejecutiva'
 					)
 				),
-				this.state && this.state.areas ? _react2.default.createElement(_filtros2.default, { areas: this.state.areas, changeHandler: this.setFilters, modo: this.props.modo, boton: boton }) : ''
+				listaFiltrada ? _react2.default.createElement(_listaResultados2.default, { arrayResultados: listaFiltrada }) : null,
+				this.state && this.state.areas ? _react2.default.createElement(_filtros2.default, { areas: this.state.areas, setFilters: this.setFilters, modo: this.props.modo, makeCall: this.makeCall, clientSideCall: clientSideCall }) : ''
 			);
 		}
 	}]);
@@ -9869,6 +9864,22 @@ var Filtros = function (_React$Component) {
 
     _this.manejadorCambioArea = _this.manejadorCambioArea.bind(_this);
     _this.manejadorCambioBimestre = _this.manejadorCambioBimestre.bind(_this);
+    _this.aplicarFiltros = _this.aplicarFiltros.bind(_this);
+
+    if (_this.props.modo == 'cursos') {
+
+      _this.state = {
+
+        area: 'all',
+        bimestre: 'all'
+      };
+    } else {
+
+      _this.state = {
+        area: 'all'
+      };
+    }
+
     return _this;
   }
 
@@ -9877,19 +9888,28 @@ var Filtros = function (_React$Component) {
     value: function manejadorCambioArea(e) {
       var valor = { area: e.target.value };
 
-      this.props.changeHandler(valor);
+      this.setState(valor);
     }
   }, {
     key: 'manejadorCambioBimestre',
     value: function manejadorCambioBimestre(e) {
       var valor = { bimestre: e.target.value };
 
-      this.props.changeHandler(valor);
+      this.setState(valor);
+    }
+  }, {
+    key: 'aplicarFiltros',
+    value: function aplicarFiltros() {
+
+      this.props.setFilters(this.state);
+
+      if (!this.props.clientSideCall) {
+        this.props.makeCall();
+      }
     }
   }, {
     key: 'render',
     value: function render() {
-      var boton = this.props.boton;
 
       return _react2.default.createElement(
         'div',
@@ -9970,7 +9990,7 @@ var Filtros = function (_React$Component) {
               )
             )
           ) : '',
-          boton.mostrarBoton ? _react2.default.createElement(_botonBusqueda2.default, { isDisabled: boton.isDisabled, clickHandler: boton.clickHandler }) : ''
+          _react2.default.createElement(_botonBusqueda2.default, { clickHandler: this.aplicarFiltros, isDisabled: this.state.area === 'all' })
         )
       );
     }
@@ -10128,14 +10148,13 @@ $(function(){
 
 exports.default = Main;
 if (document.getElementById('appBuscador')) {
+
   _reactDom2.default.render(_react2.default.createElement(Main, { modo: 'selector' }), document.getElementById('appBuscador'));
-  console.log("HEY!");
 } else if (document.getElementById('appBuscador-cursos')) {
-  console.log("HEY, CURSOS!");
+
   _reactDom2.default.render(_react2.default.createElement(Main, { modo: 'cursos' }), document.getElementById('appBuscador-cursos'));
 } else if (document.getElementById('appBuscador-diplomados')) {
 
-  console.log("HEY, DIPLOMADOS!");
   _reactDom2.default.render(_react2.default.createElement(Main, { modo: 'diplomados' }), document.getElementById('appBuscador-diplomados'));
 }
 

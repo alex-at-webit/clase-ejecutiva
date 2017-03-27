@@ -31,17 +31,19 @@ $(function(){
 
 
 if(document.getElementById('appBuscador')){
+  
 ReactDOM.render(<Main modo={'selector'}/>, document.getElementById('appBuscador')); 
-  console.log("HEY!");
+
 }
 else if(document.getElementById('appBuscador-cursos')){
-  console.log("HEY, CURSOS!");
+
 ReactDOM.render(<Main modo={'cursos'}/>, document.getElementById('appBuscador-cursos'));  
+
 }
 else if(document.getElementById('appBuscador-diplomados')){
 
-    console.log("HEY, DIPLOMADOS!");
 ReactDOM.render(<Main modo={'diplomados'}/>, document.getElementById('appBuscador-diplomados'));  
+
 }
 
 //});

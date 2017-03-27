@@ -7,23 +7,51 @@ export default class Filtros extends React.Component {
     super(props);
     this.manejadorCambioArea=this.manejadorCambioArea.bind(this);
     this.manejadorCambioBimestre=this.manejadorCambioBimestre.bind(this);
+    this.aplicarFiltros = this.aplicarFiltros.bind(this);
+
+    if(this.props.modo=='cursos'){
+
+      this.state = {
+                
+                                area:'all', 
+                                bimestre:'all'
+                              };
+
+    }else{
+
+      this.state = {
+                      area:'all'
+                              };
+
+    }
+
   }
 
   manejadorCambioArea(e){
   	var valor= {area:e.target.value};
 
-  	this.props.changeHandler(valor);
+  	this.setState(valor);
   }
 
   manejadorCambioBimestre(e){
   	var valor= {bimestre: e.target.value};
 
-  	this.props.changeHandler(valor);
+  	this.setState(valor);
   }
   
-  render() {
-    var boton= this.props.boton;
+  aplicarFiltros(){
 
+    this.props.setFilters(this.state)
+
+    if(!this.props.clientSideCall){
+      this.props.makeCall();
+    }
+
+  }
+
+
+  render() {
+    
     return (
       <div className="buscador">
     	<form>
@@ -50,8 +78,7 @@ export default class Filtros extends React.Component {
             <option value={5}>Quinto</option>
             </select>
             </div>):''}
-
-      {boton.mostrarBoton?<BotonBusqueda isDisabled={boton.isDisabled} clickHandler={boton.clickHandler} /> :''}
+        <BotonBusqueda clickHandler={this.aplicarFiltros} isDisabled={this.state.area === 'all'}/>
       </form>
       </div>
     );
