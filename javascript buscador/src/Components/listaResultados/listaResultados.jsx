@@ -16,7 +16,6 @@ export default class ListaResultados extends React.Component {
   	var lista= this.props.arrayResultados.map((value, index)=>{
 
       return <ElementoResultados key={value.ID} URL={''+value.URL+''} titulo={value.titulo} bajada={value.bajada} profesores={value.profesores}/>;
-      	//	return <div className=""><a href={''+value.URL+''}>{value.titulo}</a> </div>
       	});
 
     var listaCompleta= <ul className="listaresultados">{lista}</ul>;
@@ -24,7 +23,7 @@ export default class ListaResultados extends React.Component {
 
     return (
       <div className="resultados">  
-      {lista.length? listaCompleta : <p>No hay elementos en la lista!</p>}
+      {lista.length? listaCompleta : null}
       </div>
     );
   }

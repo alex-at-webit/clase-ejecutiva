@@ -53,6 +53,7 @@ export default class TituloBuscador extends React.Component {
             
       <div className="titulobuscador">  
       {this.props.parametros.area || this.props.parametros.bimestre? <h1>{modoString+' '+fullString}</h1>:<h1>{modoString}</h1>}
+      {this.props.hayResultados? null : <p>No hay elementos en la lista!</p>}
       </div>
     );
   }

@@ -86,7 +86,8 @@ class AppBuscador extends React.Component{
 
 		if(this.state && (this.state.filtros && this.state[this.props.modo])){
 					
-					var listaFiltrada=this.obtenerListaFiltrada();			
+					var listaFiltrada=this.obtenerListaFiltrada();		
+					var hayResultados=listaFiltrada.length;	
 					
 					}
 
@@ -100,8 +101,7 @@ class AppBuscador extends React.Component{
 		return (
 			<div className="wraper">
 
-
-				{(this.state && this.state[this.props.modo])?<TituloBuscador areas={this.state.areas} parametros={this.state.filtros} modo={this.props.modo}/>:''}
+				{(this.state && this.state[this.props.modo])?<TituloBuscador areas={this.state.areas} parametros={this.state.filtros} modo={this.props.modo} hayResultados={hayResultados}/>:''}
 				{(this.state && this.state[this.props.modo])?<ListaResultados arrayResultados={listaFiltrada} />:<div className="titulobuscador"><h1>Busca {this.props.modo} en Clase Ejecutiva</h1></div>}
 				{(this.state && this.state.areas)?<Filtros areas={this.state.areas} changeHandler={this.setFilters} modo={this.props.modo} boton={boton}/>:''}
 							

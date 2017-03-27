@@ -9565,6 +9565,7 @@ var AppBuscador = function (_React$Component) {
 			if (this.state && this.state.filtros && this.state[this.props.modo]) {
 
 				var listaFiltrada = this.obtenerListaFiltrada();
+				var hayResultados = listaFiltrada.length;
 			}
 
 			if (this.state) {
@@ -9578,7 +9579,7 @@ var AppBuscador = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				{ className: 'wraper' },
-				this.state && this.state[this.props.modo] ? _react2.default.createElement(_titulobuscador2.default, { areas: this.state.areas, parametros: this.state.filtros, modo: this.props.modo }) : '',
+				this.state && this.state[this.props.modo] ? _react2.default.createElement(_titulobuscador2.default, { areas: this.state.areas, parametros: this.state.filtros, modo: this.props.modo, hayResultados: hayResultados }) : '',
 				this.state && this.state[this.props.modo] ? _react2.default.createElement(_listaResultados2.default, { arrayResultados: listaFiltrada }) : _react2.default.createElement(
 					'div',
 					{ className: 'titulobuscador' },
@@ -10030,7 +10031,6 @@ var ListaResultados = function (_React$Component) {
       var lista = this.props.arrayResultados.map(function (value, index) {
 
         return _react2.default.createElement(_elementoResultados2.default, { key: value.ID, URL: '' + value.URL + '', titulo: value.titulo, bajada: value.bajada, profesores: value.profesores });
-        //	return <div className=""><a href={''+value.URL+''}>{value.titulo}</a> </div>
       });
 
       var listaCompleta = _react2.default.createElement(
@@ -10042,11 +10042,7 @@ var ListaResultados = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'resultados' },
-        lista.length ? listaCompleta : _react2.default.createElement(
-          'p',
-          null,
-          'No hay elementos en la lista!'
-        )
+        lista.length ? listaCompleta : null
       );
     }
   }]);
@@ -22487,6 +22483,11 @@ var TituloBuscador = function (_React$Component) {
           'h1',
           null,
           modoString
+        ),
+        this.props.hayResultados ? null : _react2.default.createElement(
+          'p',
+          null,
+          'No hay elementos en la lista!'
         )
       );
     }
