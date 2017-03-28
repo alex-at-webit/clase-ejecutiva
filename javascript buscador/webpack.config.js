@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
   entry: {
     bundle:'./src/Components/main.jsx',
-    //vendor:'react'
+    vendor:'react'
   },
   output: { path: __dirname + '/build/', filename: '[name].js' },
   module: {
@@ -21,7 +21,7 @@ module.exports = {
   },
   devtool:'cheap-module-source-map',
   watch:true,
-  /*plugins: [
+  plugins: [
   new webpack.DefinePlugin({
     'process.env': {
       'NODE_ENV': JSON.stringify('production')
@@ -31,5 +31,5 @@ module.exports = {
    new webpack.optimize.CommonsChunkPlugin({
                 names: ['vendor'] // Specify the common bundle's name.
             })
-], */
+], 
 };

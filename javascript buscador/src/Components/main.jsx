@@ -25,9 +25,9 @@ export default class Main extends React.Component {
   }
 }
 
-/*
+
 $(function(){
-*/
+
 
 
 if(document.getElementById('appBuscador')){
@@ -46,4 +46,4 @@ ReactDOM.render(<Main modo={'diplomados'}/>, document.getElementById('appBuscado
 
 }
 
-//});
+});

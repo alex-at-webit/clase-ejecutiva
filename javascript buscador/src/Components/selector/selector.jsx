@@ -8,7 +8,9 @@ export default class Selector extends React.Component {
   }
 
     manejadorSeleccion(e){
-    var valor=e.target.value;
+
+    var valor = e.target.value;
+
     this.props.changeHandler(valor);
   }
 
