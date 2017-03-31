@@ -26,7 +26,7 @@ export default class Main extends React.Component {
 }
 
 
-$(function(){
+//$(function(){
 
 
 
@@ -46,4 +46,4 @@ ReactDOM.render(<Main modo={'diplomados'}/>, document.getElementById('appBuscado
 
 }
 
-});
+//});
