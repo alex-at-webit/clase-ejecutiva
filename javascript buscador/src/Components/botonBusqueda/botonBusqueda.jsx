@@ -9,8 +9,10 @@ export default class BotonBusqueda extends React.Component {
 
   }
 
-clickHandler (){
-	this.props.clickHandler();
+clickHandler (e){
+
+	e.preventDefault();
+	this.props.clickHandler(e);
 }
 
   render() {

@@ -41,10 +41,16 @@ export default class Filtros extends React.Component {
   
   aplicarFiltros(){
 
-    this.props.setFilters(this.state)
+    this.props.setFilters(this.state);
 
     if(!this.props.clientSideCall){
       this.props.makeCall();
+    }else{
+
+         $('html, body').animate({
+            scrollTop: $('[id^=appBuscador]').offset().top
+        }, 600);
+
     }
 
   }
@@ -78,7 +84,7 @@ export default class Filtros extends React.Component {
             <option value={5}>Quinto</option>
             </select>
             </div>):''}
-        <BotonBusqueda clickHandler={this.aplicarFiltros} isDisabled={this.state.area === 'all'}/>
+        <BotonBusqueda clickHandler={this.aplicarFiltros} isDisabled={this.state.area === 'all' && this.state.bimestre ==='all'}/>
       </form>
       </div>
     );

@@ -21,11 +21,17 @@ export default class TituloBuscador extends React.Component {
   			{	
 
   				area=valor.titulo;
+
   			}
   		});
 
-  			areaString=' del area '+area;
+        if(area==null){
+          areaString='sin area';
+        }else{
+          areaString=' del area '+area;
 
+        }
+  			
   		}else{
   			areaString=' de todas las areas ';
 
